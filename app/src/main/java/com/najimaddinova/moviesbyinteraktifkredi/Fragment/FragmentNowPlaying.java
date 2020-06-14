@@ -84,6 +84,7 @@ public class FragmentNowPlaying extends Fragment {
         return v_nowplaying;
     }
 
+    //retrofit kütüphanesini kullanarak endpointtan Json data çekmemizi sağlıyor.
     public void loadNextDataFromApi(int offset) {
         if (offset == 1) {
             Toast.makeText(getContext(), Messages.MoviesAreLoading(), Toast.LENGTH_SHORT).show();
@@ -96,6 +97,8 @@ public class FragmentNowPlaying extends Fragment {
             final Call<MovieCollectionModel> callMovieCollection;
             callMovieCollection = movieInterface.getNowPlaying(offset);
             callMovieCollection.enqueue(new Callback<MovieCollectionModel>() {
+
+                //istek başarılı ise bu kod bloğu çalışır
                 @Override
                 public void onResponse(Call<MovieCollectionModel> call, Response<MovieCollectionModel> response) {
 
@@ -112,7 +115,7 @@ public class FragmentNowPlaying extends Fragment {
                         }
                     }
                 }
-
+                // http isteğinde hata bulunursa burası çalışır.
                 @Override
                 public void onFailure(Call<MovieCollectionModel> call, Throwable t) {
                     Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();

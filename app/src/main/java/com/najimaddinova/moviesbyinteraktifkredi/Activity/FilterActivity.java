@@ -44,9 +44,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent iBackMain = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(iBackMain);
-
             }
         });
-
     }
 }

@@ -108,7 +108,7 @@ public class FragmentSearch extends Fragment implements SearchView.OnQueryTextLi
                             if (collection.status_message != null) {
                                 Toast.makeText(getContext(), collection.status_message, Toast.LENGTH_LONG).show();
                             } else {
-                                recyclerViewAdapter.newAddedData(collection.results);
+                                recyclerViewAdapter.refreshAndFill(collection.results);
                             }
                         }
                     }

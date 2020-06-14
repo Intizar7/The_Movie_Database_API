@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+//filmlerin listedeki dönen verilerin formatını( yapısını) temsil ediyor.
 public class MovieCollectionModel extends ErrorCollectionModel {
 
     @SerializedName("page")

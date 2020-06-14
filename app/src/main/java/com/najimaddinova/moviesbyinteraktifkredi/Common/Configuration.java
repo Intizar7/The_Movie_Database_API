@@ -1,7 +1,6 @@
 package com.najimaddinova.moviesbyinteraktifkredi.Common;
 
 import com.najimaddinova.moviesbyinteraktifkredi.Enum.ImageSizes;
-import com.najimaddinova.moviesbyinteraktifkredi.Model.ConfigurationModel;
 
 public class Configuration {
 
@@ -9,6 +8,7 @@ public class Configuration {
     private static String ThumbSize = "w92";
     private static String PosterSize = "w500";
 
+    //resmler için bir baseurl dönüyor
     public static String getImageBaseUrl(ImageSizes size, String imagePath) {
         String imageSize;
         if (size == ImageSizes.THUMB) {

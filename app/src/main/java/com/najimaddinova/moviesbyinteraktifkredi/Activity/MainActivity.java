@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TabAdapter adapter;
     private MovieListRecyclerViewAdapter movieAdapter;
     private MenuItem myActionMenuItem;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

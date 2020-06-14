@@ -23,7 +23,7 @@ public interface MovieInterface {
     @GET("movie/{movie_id}/images")
     Call<ImageModel> getPhotosMovie(@Path("movie_id") Integer movie_id);
 
-    @GET("search/movie?api_key=")
+    @GET("search/movie")
     Call<MovieCollectionModel> getSearching(@Query("query") String query, @Query("page") Integer page);
 
     @GET("discover/movie")
