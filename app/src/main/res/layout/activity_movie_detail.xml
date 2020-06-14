@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:weightSum="12"
+    tools:context=".Activity.MovieDetail">
+
+    <LinearLayout
+        android:id="@+id/layoutPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="700px"
+        android:layout_weight="4"
+        android:background="@drawable/movie_summary"
+        android:orientation="horizontal"
+        android:paddingBottom="1dp">
+
+        <include
+            android:id="@+id/galleryRecyclerView"
+            layout="@layout/recyclerview" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/movie_spec"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtOriginalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/movie_spec"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/movie_spec"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtAdult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/movie_spec"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/txtVoteAverage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/movie_spec"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

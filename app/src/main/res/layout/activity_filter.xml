@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".Activity.FilterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="7">
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Language"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/popularity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Region"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/vote_average"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Sort By"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Certification Country"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/adult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Certification"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/primary_release_year"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Primary Release Year"
+            android:textColor="@color/colorPrimaryOrange"
+            android:textSize="14dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Filter"
+            android:textColor="@color/colorPrimaryOrange"
+            android:id="@+id/btnFilter"/>
+    </LinearLayout>
+
+</LinearLayout>
