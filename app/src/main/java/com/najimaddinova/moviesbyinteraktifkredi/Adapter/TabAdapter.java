@@ -17,6 +17,7 @@ public class TabAdapter extends FragmentPagerAdapter {
         super(fm, behavior);
     }
 
+    //liste elemanlarını döndürüyor
     @NonNull
     @Override
     public Fragment getItem(int position) {

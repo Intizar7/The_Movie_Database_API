@@ -24,8 +24,7 @@ public class FragmentGalary extends Fragment {
     private List<ImageModel.PosterModel> lstMovie = new ArrayList<>();
     private ImageGalleryRecyclerViewAdapter recyclerViewAdapter;
 
-    public FragmentGalary() {
-    }
+    public FragmentGalary() { }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -44,10 +43,5 @@ public class FragmentGalary extends Fragment {
 
         return v_galery;
     }
-
-    public void loadNextDataFromApi() {
-
-
-    }
-
+    public void loadNextDataFromApi() { }
 }

@@ -16,7 +16,6 @@ public class Configuration {
         } else {
             imageSize = Configuration.PosterSize;
         }
-
         return Configuration.ImageBaseUrl + "/" + imageSize + "/" + imagePath;
     }
 

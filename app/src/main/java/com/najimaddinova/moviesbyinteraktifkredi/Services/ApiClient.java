@@ -17,7 +17,7 @@ public class ApiClient {
 
     private static Retrofit retrofit = null;
     private static String BASE_URL = "https://api.themoviedb.org/3/";
-    // base url set edildi api key set edildi.
+    // base url ve api key set edildi.
     public static Retrofit getClient() {
 
         if (retrofit == null) {

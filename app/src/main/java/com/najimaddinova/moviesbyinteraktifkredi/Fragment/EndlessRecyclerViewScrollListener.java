@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
 
     // The minimum amount of items to have below your current scroll position
-    // before loading more.
     private int visibleThreshold = 5;
     // The current offset index of data you have loaded
     private int currentPage = 0;
@@ -38,9 +37,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         return maxSize;
     }
 
-    // This happens many times a second during a scroll, so be wary of the code you place here.
-    // We are given a few useful parameters to help us work out if we need to load some more data,
-    // but first we check if we are waiting for the previous load to finish.
+    //Daha fazla veri yüklememiz gerektiğinde bize yardımcı olacak birkaç yararlı parametre verilir
+    // ama önce bir önceki yükün bitmesini bekleyip beklemediğimizi kontrol ediyoruz.
     @Override
     public void onScrolled(RecyclerView view, int dx, int dy) {
         int lastVisibleItemPosition = 0;
@@ -56,8 +54,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
             lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
         }
 
-        // If the total item count is zero and the previous isn't, assume the
-        // list is invalidated and should be reset back to initial state
+        // Toplam öğe sayısı sıfırsa ve önceki öğe sayısı sıfırsa,
+        // liste geçersiz kılındı ve başlangıç durumuna sıfırlanmalı
         if (totalItemCount < previousTotalItemCount) {
             this.currentPage = this.startingPageIndex;
             this.previousTotalItemCount = totalItemCount;
@@ -65,18 +63,18 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
                 this.loading = true;
             }
         }
-        // If it’s still loading, we check to see if the dataset count has
-        // changed, if so we conclude it has finished loading and update the current page
-        // number and total item count.
+        // Hala yükleniyorsa, veri kümesi sayısının
+        // değişti, eğer öyleyse mevcut sayfayı yüklemeyi bitirdiğine ve güncellediğine karar verirsek
+        // sayı ve toplam öğe sayısı.
         if (loading && (totalItemCount > previousTotalItemCount)) {
             loading = false;
             previousTotalItemCount = totalItemCount;
         }
 
-        // If it isn’t currently loading, we check to see if we have breached
-        // the visibleThreshold and need to reload more data.
-        // If we do need to reload some more data, we execute onLoadMore to fetch the data.
-        // threshold should reflect how many total columns there are too
+        // Şu anda yüklenmiyorsa, ihlal edip etmediğimizi kontrol ediyoruz
+        // visibleThreshold ve daha fazla veri yüklemeniz gerekiyor.
+        // Daha fazla veri yüklememiz gerekirse, verileri almak için onLoadMore öğesini çalıştırırız.
+        // eşik, toplam kaç sütun olduğunu da yansıtmalıdır
         if (!loading && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
             currentPage++;
             onLoadMore(currentPage, totalItemCount, view);
@@ -84,7 +82,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         }
     }
 
-    // Defines the process for actually loading more data based on page
+    // Sayfaya dayalı olarak daha fazla veri yükleme işlemini tanımlar
     public abstract void onLoadMore(int page, int totalItemsCount, RecyclerView view);
 
 }

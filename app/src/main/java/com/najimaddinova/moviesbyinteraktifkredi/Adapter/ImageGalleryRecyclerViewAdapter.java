@@ -24,18 +24,19 @@ public class ImageGalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageG
         this.mData = mData;
     }
 
+    //Bu method adaptör oluşturulduğunda oluşturduğumuz ViewHolder'ın başlatılması için çağrılır.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_gallery_fragment, parent, false);
         return new MyViewHolder(v);
     }
-
+    //onCreateViewHolder’dan dönen verileri bağlama işlemini gerçekleştirildiği metotdur.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Picasso.get().load(Configuration.getImageBaseUrl(ImageSizes.POSTER, mData.get(position).filePath)).into(holder.poster);
     }
-
+//Listemizin eleman sayısını döndüren metottur.
     @Override
     public int getItemCount() {
         if (mData == null) {
@@ -49,6 +50,7 @@ public class ImageGalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageG
         notifyDataSetChanged();
     }
 
+    //Her bir satırımızın içinde bulunan bileşenleri tanımlama işleminin yapıldığı metottur.
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public final ImageView poster;

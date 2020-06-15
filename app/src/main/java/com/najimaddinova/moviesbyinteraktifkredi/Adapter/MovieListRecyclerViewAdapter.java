@@ -26,13 +26,14 @@ public class MovieListRecyclerViewAdapter extends RecyclerView.Adapter<MovieList
         this.mFilterList = filterList;
         this.listener = listener;
     }
-
+    //Bu method adaptör oluşturulduğunda oluşturduğumuz ViewHolder'ın başlatılması için çağrılır.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movies, parent, false);
         return new MyViewHolder(v);
     }
+    //onCreateViewHolder’dan dönen verileri bağlama işlemini gerçekleştirildiği metotdur.
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         Picasso.get().load(Configuration.getImageBaseUrl(ImageSizes.THUMB, mFilterList.get(position).posterPath)).into(holder.movieCover);
@@ -40,6 +41,7 @@ public class MovieListRecyclerViewAdapter extends RecyclerView.Adapter<MovieList
         holder.txtMovieDate.setText(mFilterList.get(position).releaseDate);
         holder.bind(mFilterList.get(position), listener);
     }
+    //Listemizin eleman sayısını döndüren metottur
     @Override
     public int getItemCount() {
         if (mFilterList == null) {
@@ -59,11 +61,11 @@ public class MovieListRecyclerViewAdapter extends RecyclerView.Adapter<MovieList
         notifyDataSetChanged();
     }
 
+    //Her bir satırımızın içinde bulunan bileşenleri tanımlama işleminin yapıldığı metottur.
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public final ImageView movieCover;
         public final TextView txtMovieName, txtMovieDate;
-
         public MyViewHolder(View view) {
             super(view);
             movieCover = view.findViewById(R.id.movieCover);
@@ -91,17 +93,12 @@ public class MovieListRecyclerViewAdapter extends RecyclerView.Adapter<MovieList
                 } else {
                     List<MovieSummaryModel> filteredList = new ArrayList<>();
                     for (MovieSummaryModel row : movieSummaryList) {
-
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
                         if (row.getTitle().toLowerCase().contains(charString.toLowerCase()) || row.getOriginalTitle().contains(charSequence)) {
                             filteredList.add(row);
                         }
                     }
-
                     mFilterList = filteredList;
                 }
-
                 FilterResults filterResults = new FilterResults();
                 filterResults.values = mFilterList;
                 return filterResults;
